@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main, "feature/**"]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  build:
+    name: TypeScript + Next.js build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - run: npm ci
+      - name: Type check
+        run: npx tsc --noEmit
+      - name: Build
+        run: npm run build
+        env:
+          AGENTSAVE_API_URL: http://localhost:8000
+          AGENTSAVE_API_KEY: ask-ci-placeholder
