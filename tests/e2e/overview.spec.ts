@@ -1,6 +1,9 @@
 import { test, expect } from '@playwright/test'
+import { API_KEY, resetDB, seedRuns } from './helpers'
 
-test.describe('Overview page', () => {
+const hasBackend = !!API_KEY
+
+test.describe('Overview page — UI structure', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/')
     await page.waitForLoadState('networkidle')
@@ -17,54 +20,62 @@ test.describe('Overview page', () => {
     await expect(page.getByTestId('stat-total-runs')).toBeVisible()
   })
 
-  test('tokens saved shows a real number (not —)', async ({ page }) => {
-    const value = page.getByTestId('stat-tokens-saved-value')
-    await expect(value).toBeVisible()
-    const text = await value.textContent()
-    expect(text).not.toBe('—')
-    expect(text?.replace(/,/g, '')).toMatch(/\d+/)
-    console.log(`[Playwright] Tokens saved: ${text}`)
+  test('stat card values are visible', async ({ page }) => {
+    await expect(page.getByTestId('stat-tokens-saved-value')).toBeVisible()
+    await expect(page.getByTestId('stat-cost-saved-value')).toBeVisible()
+    await expect(page.getByTestId('stat-success-rate-value')).toBeVisible()
+    await expect(page.getByTestId('stat-total-runs-value')).toBeVisible()
   })
 
-  test('cost saved shows value', async ({ page }) => {
-    const value = page.getByTestId('stat-cost-saved-value')
-    await expect(value).toBeVisible()
-    const text = await value.textContent()
-    console.log(`[Playwright] Cost saved: ${text}`)
-    expect(text?.length).toBeGreaterThan(0)
+  test('chart-tokens container is present', async ({ page }) => {
+    await expect(page.getByTestId('chart-tokens')).toBeVisible()
   })
 
-  test('success rate shows value', async ({ page }) => {
-    const value = page.getByTestId('stat-success-rate-value')
-    await expect(value).toBeVisible()
-    const text = await value.textContent()
-    console.log(`[Playwright] Success rate: ${text}`)
-  })
-
-  test('total runs shows event count', async ({ page }) => {
-    const value = page.getByTestId('stat-total-runs-value')
-    await expect(value).toBeVisible()
-    const text = await value.textContent()
-    expect(parseInt(text?.replace(/,/g, '') ?? '0')).toBeGreaterThan(0)
-    console.log(`[Playwright] Total runs: ${text}`)
-  })
-
-  test('tokens area chart is visible', async ({ page }) => {
-    await expect(page.getByTestId('tokens-area-chart')).toBeVisible()
-  })
-
-  test('framework donut is visible', async ({ page }) => {
-    await expect(page.getByTestId('framework-donut')).toBeVisible()
+  test('chart-donut container is present', async ({ page }) => {
+    await expect(page.getByTestId('chart-donut')).toBeVisible()
   })
 
   test('activity feed is visible', async ({ page }) => {
     await expect(page.getByTestId('activity-feed')).toBeVisible()
   })
 
-  test('demo data: tokens saved ≥ 70,000', async ({ page }) => {
-    const text = await page.getByTestId('stat-tokens-saved-value').textContent()
+  test('dashboard greeting is visible', async ({ page }) => {
+    await expect(page.getByTestId('dashboard-greeting')).toBeVisible()
+  })
+})
+
+test.describe('Overview page — with live data', () => {
+  test.skip(!hasBackend, 'TEST_API_KEY not set — skipping live-data browser tests')
+
+  test.beforeEach(async ({ request }) => {
+    await resetDB(request)
+    await seedRuns(request, 10)
+  })
+
+  test('tokens saved shows a positive number after seeding', async ({ page }) => {
+    await page.goto('/')
+    await page.waitForLoadState('networkidle')
+    const value = page.getByTestId('stat-tokens-saved-value')
+    await expect(value).toBeVisible()
+    const text = await value.textContent()
     const numeric = parseInt((text ?? '0').replace(/,/g, ''))
-    expect(numeric).toBeGreaterThanOrEqual(70_000)
-    console.log(`[Playwright] Tokens saved (numeric): ${numeric}`)
+    expect(numeric).toBeGreaterThan(0)
+    console.log(`[Playwright] Tokens saved: ${text}`)
+  })
+
+  test('total runs count reflects seeded data', async ({ page }) => {
+    await page.goto('/')
+    await page.waitForLoadState('networkidle')
+    const text = await page.getByTestId('stat-total-runs-value').textContent()
+    const numeric = parseInt(text?.replace(/,/g, '') ?? '0')
+    expect(numeric).toBeGreaterThanOrEqual(10)
+  })
+
+  test('live badge shows run count', async ({ page }) => {
+    await page.goto('/')
+    await page.waitForLoadState('networkidle')
+    await expect(page.getByTestId('live-badge')).toBeVisible()
+    const text = await page.getByTestId('live-badge').textContent()
+    expect(text).toMatch(/\d+/)
   })
 })
