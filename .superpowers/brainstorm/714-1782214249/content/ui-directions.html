@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentSave UI — Design Directions</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; background: #0d0d0d; color: #fff; padding: 32px; }
+  h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+  .subtitle { color: #666; font-size: 14px; margin-bottom: 40px; }
+  .direction-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #555; margin-bottom: 14px; }
+  .direction-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .direction-desc { font-size: 13px; color: #888; margin-bottom: 20px; line-height: 1.5; }
+  .stack-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+  .pill { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 999px; letter-spacing: 0.04em; }
+
+  /* ─── DIRECTION A: Midnight Glow ─── */
+  .preview-a {
+    background: #05050f;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #1a1a2e;
+    height: 420px;
+    display: flex;
+    position: relative;
+  }
+  .a-sidebar {
+    width: 220px;
+    background: linear-gradient(180deg, #0d0d1f 0%, #080814 100%);
+    border-right: 1px solid #1a1a2e;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .a-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+  .a-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .a-logo-text { font-size: 16px; font-weight: 700; background: linear-gradient(90deg, #a78bfa, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .a-nav-item { padding: 9px 12px; border-radius: 8px; font-size: 13px; display: flex; align-items: center; gap: 10px; color: #666; cursor: pointer; transition: all 0.15s; }
+  .a-nav-item.active { background: rgba(99,102,241,0.15); color: #a78bfa; border: 1px solid rgba(99,102,241,0.2); }
+  .a-nav-dot { width: 6px; height: 6px; border-radius: 50%; background: #6366f1; }
+  .a-main { flex: 1; padding: 24px; overflow: hidden; }
+  .a-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+  .a-title { font-size: 20px; font-weight: 700; }
+  .a-badge { font-size: 11px; padding: 5px 12px; border-radius: 999px; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); color: #a78bfa; }
+  .a-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 18px; }
+  .a-card {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px;
+    padding: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .a-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px 2px 0 0;
+  }
+  .a-card-label { font-size: 11px; color: #555; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+  .a-card-value { font-size: 28px; font-weight: 800; background: var(--accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .a-card-sub { font-size: 11px; color: #444; margin-top: 4px; }
+  .a-chart { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 14px; padding: 16px; height: 140px; position: relative; overflow: hidden; }
+  .a-chart-label { font-size: 11px; color: #555; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+  .a-chart-svg { position: absolute; bottom: 16px; left: 16px; right: 16px; height: 90px; }
+
+  /* ─── DIRECTION B: Data Terminal ─── */
+  .preview-b {
+    background: #080e0a;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #0f2a14;
+    height: 420px;
+    display: flex;
+  }
+  .b-sidebar {
+    width: 200px;
+    background: #060d08;
+    border-right: 1px solid #0f2a14;
+    padding: 20px 0;
+  }
+  .b-logo { padding: 0 20px 20px; border-bottom: 1px solid #0f2a14; margin-bottom: 12px; }
+  .b-logo-text { font-family: 'SF Mono', 'Courier New', monospace; font-size: 14px; font-weight: 700; color: #22c55e; }
+  .b-logo-tag { font-family: 'SF Mono', monospace; font-size: 10px; color: #2d5a3a; margin-top: 2px; }
+  .b-nav-item { padding: 8px 20px; font-size: 12px; font-family: 'SF Mono', monospace; color: #2d5a3a; display: flex; align-items: center; gap: 8px; cursor: pointer; border-left: 2px solid transparent; }
+  .b-nav-item.active { color: #4ade80; border-left-color: #22c55e; background: rgba(34,197,94,0.05); }
+  .b-prompt { color: #22c55e; font-size: 10px; }
+  .b-main { flex: 1; padding: 20px; font-family: 'SF Mono', 'Courier New', monospace; }
+  .b-cmd { font-size: 11px; color: #22c55e; margin-bottom: 16px; }
+  .b-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 14px; }
+  .b-metric { background: #0a1a0d; border: 1px solid #0f2a14; border-radius: 8px; padding: 12px; }
+  .b-metric-key { font-size: 10px; color: #2d5a3a; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+  .b-metric-val { font-size: 22px; font-weight: 700; color: #4ade80; }
+  .b-metric-unit { font-size: 10px; color: #2d5a3a; }
+  .b-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  .b-table th { text-align: left; color: #2d5a3a; font-weight: 600; padding: 6px 8px; border-bottom: 1px solid #0f2a14; text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px; }
+  .b-table td { padding: 6px 8px; color: #4ade80; border-bottom: 1px solid #0a1a0d; }
+  .b-table .dim { color: #2d5a3a; }
+  .b-table .hi { color: #86efac; font-weight: 700; }
+  .b-bar { height: 4px; background: #0f2a14; border-radius: 2px; margin-top: 3px; }
+  .b-bar-fill { height: 100%; background: #22c55e; border-radius: 2px; }
+
+  /* ─── DIRECTION C: Warm Clarity ─── */
+  .preview-c {
+    background: #fafaf8;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e5e3dc;
+    height: 420px;
+    display: flex;
+  }
+  .c-sidebar {
+    width: 210px;
+    background: #f5f3ee;
+    border-right: 1px solid #e5e3dc;
+    padding: 20px 12px;
+  }
+  .c-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; padding: 0 8px; }
+  .c-logo-icon { width: 28px; height: 28px; background: linear-gradient(135deg, #2563eb, #7c3aed); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+  .c-logo-text { font-size: 15px; font-weight: 700; color: #1a1a1a; }
+  .c-nav-section { font-size: 10px; font-weight: 700; color: #aaa8a0; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 8px; margin: 16px 0 6px; }
+  .c-nav-item { padding: 8px 10px; border-radius: 8px; font-size: 13px; color: #6b6860; display: flex; align-items: center; gap: 9px; cursor: pointer; margin-bottom: 1px; }
+  .c-nav-item.active { background: #fff; color: #1a1a1a; box-shadow: 0 1px 3px rgba(0,0,0,0.08); font-weight: 600; }
+  .c-main { flex: 1; padding: 24px; background: #fafaf8; overflow: hidden; }
+  .c-header { margin-bottom: 22px; }
+  .c-page-title { font-size: 22px; font-weight: 700; color: #1a1a1a; }
+  .c-page-sub { font-size: 13px; color: #9b9890; margin-top: 3px; }
+  .c-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+  .c-card { background: #fff; border: 1px solid #e5e3dc; border-radius: 12px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  .c-card-label { font-size: 12px; color: #9b9890; font-weight: 500; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .c-card-icon { width: 20px; height: 20px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; }
+  .c-card-value { font-size: 26px; font-weight: 800; color: #1a1a1a; }
+  .c-card-change { font-size: 11px; color: #16a34a; margin-top: 4px; font-weight: 600; }
+  .c-chart-area { background: #fff; border: 1px solid #e5e3dc; border-radius: 12px; padding: 16px; height: 148px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  .c-chart-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .c-chart-title { font-size: 13px; font-weight: 600; color: #1a1a1a; }
+  .c-period-tabs { display: flex; gap: 2px; }
+  .c-tab { font-size: 11px; padding: 3px 8px; border-radius: 5px; cursor: pointer; color: #9b9890; }
+  .c-tab.active { background: #f0eee8; color: #1a1a1a; font-weight: 600; }
+
+  /* DIRECTION WRAPPER */
+  .direction { margin-bottom: 48px; }
+  .tag-a { background: rgba(99,102,241,0.15); color: #a78bfa; border: 1px solid rgba(99,102,241,0.25); }
+  .tag-b { background: rgba(34,197,94,0.1); color: #4ade80; border: 1px solid rgba(34,197,94,0.2); }
+  .tag-c { background: rgba(37,99,235,0.1); color: #3b82f6; border: 1px solid rgba(37,99,235,0.2); }
+  .divider { height: 1px; background: #1a1a1a; margin: 0 0 48px; }
+</style>
+</head>
+<body>
+<h1>AgentSave — UI Design Directions</h1>
+<p class="subtitle">Three visual directions for the ultra dashboard. Current UI is flat dark-gray cards with no charts or animation.</p>
+
+<!-- ══════════════ DIRECTION A ══════════════ -->
+<div class="direction">
+  <div class="direction-label">Direction A</div>
+  <div class="direction-title">Midnight Glow</div>
+  <div class="direction-desc">Deep space dark + glassmorphism cards + electric violet/indigo gradients + area charts. Inspired by Linear, Vercel, and Raycast. Soothing and premium-feeling — every card glows subtly. Best for developers who love their tools beautiful.</div>
+  <div class="stack-pills">
+    <span class="pill tag-a">shadcn/ui</span>
+    <span class="pill tag-a">Framer Motion</span>
+    <span class="pill tag-a">Recharts</span>
+    <span class="pill tag-a">Tailwind v4</span>
+    <span class="pill tag-a">Lucide Icons</span>
+    <span class="pill tag-a">next-themes</span>
+  </div>
+
+  <div class="preview-a">
+    <div class="a-sidebar">
+      <div class="a-logo">
+        <div class="a-logo-icon">⚡</div>
+        <div class="a-logo-text">AgentSave</div>
+      </div>
+      <div class="a-nav-item active"><div class="a-nav-dot"></div> Overview</div>
+      <div class="a-nav-item">📊 Analytics</div>
+      <div class="a-nav-item">🤖 Agents</div>
+      <div class="a-nav-item">🔑 API Keys</div>
+      <div class="a-nav-item">📄 Runs</div>
+      <div class="a-nav-item" style="margin-top:auto;">⚙ Settings</div>
+      <div class="a-nav-item">💳 Billing</div>
+    </div>
+    <div class="a-main">
+      <div class="a-header">
+        <div class="a-title">Overview</div>
+        <div class="a-badge">Last 30 days ▾</div>
+      </div>
+      <div class="a-cards">
+        <div class="a-card" style="--accent: linear-gradient(90deg,#6366f1,#8b5cf6)">
+          <div class="a-card-label">Tokens Saved</div>
+          <div class="a-card-value">77,700</div>
+          <div class="a-card-sub">↑ 23% vs last month</div>
+        </div>
+        <div class="a-card" style="--accent: linear-gradient(90deg,#10b981,#34d399)">
+          <div class="a-card-label">Cost Saved</div>
+          <div class="a-card-value">$0.23</div>
+          <div class="a-card-sub">↑ 18% vs last month</div>
+        </div>
+        <div class="a-card" style="--accent: linear-gradient(90deg,#f59e0b,#fbbf24)">
+          <div class="a-card-label">Success Rate</div>
+          <div class="a-card-value">90%</div>
+          <div class="a-card-sub">30 runs · 27 succeeded</div>
+        </div>
+      </div>
+      <div class="a-chart">
+        <div class="a-chart-label">Token reduction over time</div>
+        <svg class="a-chart-svg" viewBox="0 0 400 90" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#6366f1" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M0,80 L40,72 L80,65 L120,58 L160,50 L200,45 L240,38 L280,30 L320,25 L360,20 L400,15 L400,90 L0,90 Z" fill="url(#grad)"/>
+          <path d="M0,80 L40,72 L80,65 L120,58 L160,50 L200,45 L240,38 L280,30 L320,25 L360,20 L400,15" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="400" cy="15" r="4" fill="#6366f1"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- ══════════════ DIRECTION B ══════════════ -->
+<div class="direction">
+  <div class="direction-label">Direction B</div>
+  <div class="direction-title">Data Terminal</div>
+  <div class="direction-desc">Matrix-green on deep black, monospace fonts mixed with modern sans, real-time sparkline bars, framework leaderboard table with live-update feel. Inspired by Grafana, Datadog, Warp terminal. Very developer-native — feels like you're looking at the matrix. Focused and minimal.</div>
+  <div class="stack-pills">
+    <span class="pill tag-b">shadcn/ui</span>
+    <span class="pill tag-b">Recharts</span>
+    <span class="pill tag-b">SF Mono / JetBrains Mono</span>
+    <span class="pill tag-b">CSS animations</span>
+    <span class="pill tag-b">Lucide Icons</span>
+  </div>
+
+  <div class="preview-b">
+    <div class="b-sidebar">
+      <div class="b-logo">
+        <div class="b-logo-text">agent_save</div>
+        <div class="b-logo-tag">v0.1.0 · pro tier</div>
+      </div>
+      <div class="b-nav-item active"><span class="b-prompt">›</span> overview</div>
+      <div class="b-nav-item"><span class="b-prompt">·</span> analytics</div>
+      <div class="b-nav-item"><span class="b-prompt">·</span> agents</div>
+      <div class="b-nav-item"><span class="b-prompt">·</span> runs</div>
+      <div class="b-nav-item"><span class="b-prompt">·</span> api_keys</div>
+      <div class="b-nav-item" style="margin-top:auto"><span class="b-prompt">·</span> settings</div>
+      <div class="b-nav-item"><span class="b-prompt">·</span> billing</div>
+    </div>
+    <div class="b-main">
+      <div class="b-cmd">$ agentsave status --period=30d</div>
+      <div class="b-grid">
+        <div class="b-metric">
+          <div class="b-metric-key">tokens_saved</div>
+          <div class="b-metric-val">77,700<span class="b-metric-unit"> tok</span></div>
+        </div>
+        <div class="b-metric">
+          <div class="b-metric-key">cost_saved_usd</div>
+          <div class="b-metric-val">$0.2331</div>
+        </div>
+        <div class="b-metric">
+          <div class="b-metric-key">success_rate</div>
+          <div class="b-metric-val">90<span class="b-metric-unit">%</span></div>
+        </div>
+        <div class="b-metric">
+          <div class="b-metric-key">total_runs</div>
+          <div class="b-metric-val">30</div>
+        </div>
+      </div>
+      <table class="b-table">
+        <tr><th>framework</th><th>runs</th><th>tokens_saved</th><th>reduction</th></tr>
+        <tr><td class="hi">langchain</td><td class="dim">10</td><td>30,000</td><td>
+          <div>30%</div><div class="b-bar"><div class="b-bar-fill" style="width:90%"></div></div>
+        </td></tr>
+        <tr><td>crewai</td><td class="dim">4</td><td>14,400</td><td>
+          <div>30%</div><div class="b-bar"><div class="b-bar-fill" style="width:78%"></div></div>
+        </td></tr>
+        <tr><td>autogen</td><td class="dim">5</td><td>12,000</td><td>
+          <div>30%</div><div class="b-bar"><div class="b-bar-fill" style="width:65%"></div></div>
+        </td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- ══════════════ DIRECTION C ══════════════ -->
+<div class="direction">
+  <div class="direction-label">Direction C</div>
+  <div class="direction-title">Warm Clarity</div>
+  <div class="direction-desc">Light mode with warm off-white (#fafaf8), clean cards with subtle shadows, period-toggle charts, section labels, change indicators. Inspired by Stripe Dashboard, Linear (light), Notion. The one enterprises and non-developers fall in love with. Calm, professional, trustworthy. Accessible by default.</div>
+  <div class="stack-pills">
+    <span class="pill tag-c">shadcn/ui</span>
+    <span class="pill tag-c">Recharts</span>
+    <span class="pill tag-c">Inter font</span>
+    <span class="pill tag-c">Tailwind v4</span>
+    <span class="pill tag-c">Lucide Icons</span>
+    <span class="pill tag-c">next-themes (auto)</span>
+  </div>
+
+  <div class="preview-c">
+    <div class="c-sidebar">
+      <div class="c-logo">
+        <div class="c-logo-icon" style="color:white">⚡</div>
+        <div class="c-logo-text">AgentSave</div>
+      </div>
+      <div class="c-nav-section">Main</div>
+      <div class="c-nav-item active">📊 Overview</div>
+      <div class="c-nav-item">📈 Analytics</div>
+      <div class="c-nav-item">🤖 Agents</div>
+      <div class="c-nav-item">🔄 Runs</div>
+      <div class="c-nav-section" style="margin-top: 12px;">Account</div>
+      <div class="c-nav-item">🔑 API Keys</div>
+      <div class="c-nav-item">⚙ Settings</div>
+      <div class="c-nav-item">💳 Billing</div>
+    </div>
+    <div class="c-main">
+      <div class="c-header">
+        <div class="c-page-title">Overview</div>
+        <div class="c-page-sub">Pro plan · demo@agentsave.io</div>
+      </div>
+      <div class="c-cards">
+        <div class="c-card">
+          <div class="c-card-label"><div class="c-card-icon" style="background:#eff6ff; color:#2563eb">🔷</div>Tokens Saved</div>
+          <div class="c-card-value">77,700</div>
+          <div class="c-card-change">↑ 23% vs last month</div>
+        </div>
+        <div class="c-card">
+          <div class="c-card-label"><div class="c-card-icon" style="background:#f0fdf4; color:#16a34a">💚</div>Cost Saved</div>
+          <div class="c-card-value">$0.2331</div>
+          <div class="c-card-change">↑ 18% vs last month</div>
+        </div>
+        <div class="c-card">
+          <div class="c-card-label"><div class="c-card-icon" style="background:#fdf4ff; color:#9333ea">📊</div>Success Rate</div>
+          <div class="c-card-value">90%</div>
+          <div class="c-card-change" style="color:#9b9890">27 of 30 runs succeeded</div>
+        </div>
+        <div class="c-card">
+          <div class="c-card-label"><div class="c-card-icon" style="background:#fff7ed; color:#ea580c">🔥</div>Total Runs</div>
+          <div class="c-card-value">30</div>
+          <div class="c-card-change">Across 6 frameworks</div>
+        </div>
+      </div>
+      <div class="c-chart-area">
+        <div class="c-chart-head">
+          <div class="c-chart-title">Token savings over time</div>
+          <div class="c-period-tabs">
+            <div class="c-tab">7d</div>
+            <div class="c-tab active">30d</div>
+            <div class="c-tab">90d</div>
+          </div>
+        </div>
+        <svg viewBox="0 0 380 80" style="width:100%;height:80px">
+          <defs>
+            <linearGradient id="cgrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2563eb" stop-opacity="0.15"/>
+              <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M0,72 L38,68 L76,62 L114,55 L152,48 L190,40 L228,33 L266,26 L304,20 L342,14 L380,10 L380,80 L0,80 Z" fill="url(#cgrad)"/>
+          <path d="M0,72 L38,68 L76,62 L114,55 L152,48 L190,40 L228,33 L266,26 L304,20 L342,14 L380,10" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

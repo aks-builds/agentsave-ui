@@ -1,26 +1,130 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #05050f;
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-hover: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --text: #f0f0f8;
+  --muted: #6b6b80;
+  --accent: #6366f1;
+  --accent2: #8b5cf6;
+  --green: #10b981;
+  --amber: #f59e0b;
+  --rose: #f43f5e;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --bg: #05050f;
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-hover: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --text: #f0f0f8;
+  --muted: #6b6b80;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.light {
+  --bg: #ffffff;
+  --surface: rgba(0, 0, 0, 0.02);
+  --surface-hover: rgba(0, 0, 0, 0.04);
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.15);
+  --text: #0f0f1a;
+  --muted: #6b7280;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
+
+.font-mono {
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+}
+
+/* Range slider (Cost Projector) */
+input[type='range'].slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.15);
+  outline: none;
+  cursor: pointer;
+}
+input[type='range'].slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+  border: none;
+  cursor: pointer;
+}
+input[type='range'].slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+  border: none;
+  cursor: pointer;
+}
+input[type='range'].slider::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.15);
+}
+
+/* Live activity pulse dot */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+.pulse-dot {
+  animation: pulse 1.5s infinite;
+}
+
+/* Command palette (cmdk Dialog) */
+.command-palette-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 100;
+}
+.command-palette-content {
+  position: fixed;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 520px;
+  background: #0d0d1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0;
+  overflow: hidden;
+  color: #f0f0f8;
+  z-index: 101;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+.command-palette-content [cmdk-item][data-selected='true'] {
+  background: rgba(99, 102, 241, 0.2);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
