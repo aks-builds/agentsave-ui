@@ -1,0 +1,2506 @@
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\AdityaKumarSingh\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\AdityaKumarSingh\agentsave-ui\package-lock.json
+
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <DashboardPage>
+                <div data-testid="dashboard-...">
+                  <div>
+                  <div style={{display:"grid", ...}} className="grid-cols-...">
+                    <StatCard title="Tokens Saved" value={77700} subtitle="last 30 days" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-token..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-6366f1-qvhl"
+-                                 id="spark-6366f1-6qvd"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-6366f1-qvhl)"
+-                               fill="url(#spark-6366f1-6qvd)"
+                              >
+                              ...
+                    <StatCard title="Cost Saved" value={2331} subtitle="$0.2331 US..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-cost-..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-10b981-evr2"
+-                                 id="spark-10b981-x4ce"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-10b981-evr2)"
+-                               fill="url(#spark-10b981-x4ce)"
+                              >
+                              ...
+                    <StatCard title="Success Rate" value={90} subtitle="of agent runs" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-succe..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f59e0b-c5z4"
+-                                 id="spark-f59e0b-cd1d"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f59e0b-c5z4)"
+-                               fill="url(#spark-f59e0b-cd1d)"
+                              >
+                              ...
+                    <StatCard title="Total Runs" value={30} subtitle="agent exec..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-total..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f43f5e-2hsl"
+-                                 id="spark-f43f5e-stus"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f43f5e-2hsl)"
+-                               fill="url(#spark-f43f5e-stus)"
+                              >
+                              ...
+                  ...
+            ...
+          ...
+ 
+[browser] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). 
+[browser] Uncaught Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <LoadingBoundary name="cost/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/cost" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="cost/page.tsx">
+                <SegmentTrieNode>
+                <CostPage>
+                  <main style={{padding:28}}>
+                    <h1>
+                    <p>
+                    <div style={{display:"grid", ...}}>
+                      <div style={{...}}>
+                        <h2>
+                        <p>
+                        <CostProjector>
+                          <div data-testid="cost-proje...">
+                            <div>
+                            <div>
+                            <div>
+                            <div data-testid="cost-proje..." style={{...}}>
+                              <div style={{display:"flex", ...}}>
+                                <span>
+                                <span style={{color:"#a78bfa",fontWeight:600,fontFamily:"JetBrains ..."}}>
++                                 1,500,000
+-                                 15,00,000
+                              ...
+                      ...
+                    ...
+              ...
+            ...
+
+    at <unknown> (https://react.dev/link/hydration-mismatch)
+    at span (<anonymous>)
+    at CostProjector (app/components/cost/CostProjector.tsx:132:11)
+    at CostPage (app\cost\page.tsx:13:11)
+  130 |         >
+  131 |           <span style={{ color: 'var(--muted)' }}>Tokens reduced (30%)</span>
+> 132 |           <span style={{ color: '#a78bfa', fontWeight: 600, fontFamily: 'JetBrains Mono, ...
+      |           ^
+  133 |             {Math.round(tokensReduced).toLocaleString()}
+  134 |           </span>
+  135 |         </div>
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <DashboardPage>
+                <div data-testid="dashboard-...">
+                  <div>
+                  <div style={{display:"grid", ...}} className="grid-cols-...">
+                    <StatCard title="Tokens Saved" value={77700} subtitle="last 30 days" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-token..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-6366f1-jqtt"
+-                                 id="spark-6366f1-0tru"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-6366f1-jqtt)"
+-                               fill="url(#spark-6366f1-0tru)"
+                              >
+                              ...
+                    <StatCard title="Cost Saved" value={2331} subtitle="$0.2331 US..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-cost-..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-10b981-5bmr"
+-                                 id="spark-10b981-vrgp"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-10b981-5bmr)"
+-                               fill="url(#spark-10b981-vrgp)"
+                              >
+                              ...
+                    <StatCard title="Success Rate" value={90} subtitle="of agent runs" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-succe..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f59e0b-7n2m"
+-                                 id="spark-f59e0b-081u"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f59e0b-7n2m)"
+-                               fill="url(#spark-f59e0b-081u)"
+                              >
+                              ...
+                    <StatCard title="Total Runs" value={30} subtitle="agent exec..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-total..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f43f5e-8rp6"
+-                                 id="spark-f43f5e-vtjz"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f43f5e-8rp6)"
+-                               fill="url(#spark-f43f5e-vtjz)"
+                              >
+                              ...
+                  ...
+            ...
+          ...
+ 
+[browser] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). 
+[browser] Uncaught Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <LoadingBoundary name="cost/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/cost" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="cost/page.tsx">
+                <SegmentTrieNode>
+                <CostPage>
+                  <main style={{padding:28}}>
+                    <h1>
+                    <p>
+                    <div style={{display:"grid", ...}}>
+                      <div style={{...}}>
+                        <h2>
+                        <p>
+                        <CostProjector>
+                          <div data-testid="cost-proje...">
+                            <div>
+                            <div>
+                            <div>
+                            <div data-testid="cost-proje..." style={{...}}>
+                              <div style={{display:"flex", ...}}>
+                                <span>
+                                <span style={{color:"#a78bfa",fontWeight:600,fontFamily:"JetBrains ..."}}>
++                                 1,500,000
+-                                 15,00,000
+                              ...
+                      ...
+                    ...
+              ...
+            ...
+
+    at <unknown> (https://react.dev/link/hydration-mismatch)
+    at span (<anonymous>)
+    at CostProjector (app/components/cost/CostProjector.tsx:132:11)
+    at CostPage (app\cost\page.tsx:13:11)
+  130 |         >
+  131 |           <span style={{ color: 'var(--muted)' }}>Tokens reduced (30%)</span>
+> 132 |           <span style={{ color: '#a78bfa', fontWeight: 600, fontFamily: 'JetBrains Mono, ...
+      |           ^
+  133 |             {Math.round(tokensReduced).toLocaleString()}
+  134 |           </span>
+  135 |         </div>
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <DashboardPage>
+                <div data-testid="dashboard-...">
+                  <div>
+                  <div style={{display:"grid", ...}} className="grid-cols-...">
+                    <StatCard title="Tokens Saved" value={77700} subtitle="last 30 days" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-token..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-6366f1-4s30"
+-                                 id="spark-6366f1-er2h"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-6366f1-4s30)"
+-                               fill="url(#spark-6366f1-er2h)"
+                              >
+                              ...
+                    <StatCard title="Cost Saved" value={2331} subtitle="$0.2331 US..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-cost-..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-10b981-k4qg"
+-                                 id="spark-10b981-x7xb"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-10b981-k4qg)"
+-                               fill="url(#spark-10b981-x7xb)"
+                              >
+                              ...
+                    <StatCard title="Success Rate" value={90} subtitle="of agent runs" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-succe..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f59e0b-ez3i"
+-                                 id="spark-f59e0b-5oe1"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f59e0b-ez3i)"
+-                               fill="url(#spark-f59e0b-5oe1)"
+                              >
+                              ...
+                    <StatCard title="Total Runs" value={30} subtitle="agent exec..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-total..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f43f5e-51au"
+-                                 id="spark-f43f5e-ny76"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f43f5e-51au)"
+-                               fill="url(#spark-f43f5e-ny76)"
+                              >
+                              ...
+                  ...
+            ...
+          ...
+ 
+[browser] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). 
+[browser] Uncaught Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <LoadingBoundary name="cost/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/cost" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="cost/page.tsx">
+                <SegmentTrieNode>
+                <CostPage>
+                  <main style={{padding:28}}>
+                    <h1>
+                    <p>
+                    <div style={{display:"grid", ...}}>
+                      <div style={{...}}>
+                        <h2>
+                        <p>
+                        <CostProjector>
+                          <div data-testid="cost-proje...">
+                            <div>
+                            <div>
+                            <div>
+                            <div data-testid="cost-proje..." style={{...}}>
+                              <div style={{display:"flex", ...}}>
+                                <span>
+                                <span style={{color:"#a78bfa",fontWeight:600,fontFamily:"JetBrains ..."}}>
++                                 1,500,000
+-                                 15,00,000
+                              ...
+                      ...
+                    ...
+              ...
+            ...
+
+    at <unknown> (https://react.dev/link/hydration-mismatch)
+    at span (<anonymous>)
+    at CostProjector (app/components/cost/CostProjector.tsx:132:11)
+    at CostPage (app\cost\page.tsx:13:11)
+  130 |         >
+  131 |           <span style={{ color: 'var(--muted)' }}>Tokens reduced (30%)</span>
+> 132 |           <span style={{ color: '#a78bfa', fontWeight: 600, fontFamily: 'JetBrains Mono, ...
+      |           ^
+  133 |             {Math.round(tokensReduced).toLocaleString()}
+  134 |           </span>
+  135 |         </div>
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <DashboardPage>
+                <div data-testid="dashboard-...">
+                  <div>
+                  <div style={{display:"grid", ...}} className="grid-cols-...">
+                    <StatCard title="Tokens Saved" value={77700} subtitle="last 30 days" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-token..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-6366f1-c2ra"
+-                                 id="spark-6366f1-f14e"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-6366f1-c2ra)"
+-                               fill="url(#spark-6366f1-f14e)"
+                              >
+                              ...
+                    <StatCard title="Cost Saved" value={2331} subtitle="$0.2331 US..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-cost-..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-10b981-oyqc"
+-                                 id="spark-10b981-hszc"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-10b981-oyqc)"
+-                               fill="url(#spark-10b981-hszc)"
+                              >
+                              ...
+                    <StatCard title="Success Rate" value={90} subtitle="of agent runs" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-succe..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f59e0b-qr16"
+-                                 id="spark-f59e0b-50b6"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f59e0b-qr16)"
+-                               fill="url(#spark-f59e0b-50b6)"
+                              >
+                              ...
+                    <StatCard title="Total Runs" value={30} subtitle="agent exec..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-total..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f43f5e-xykg"
+-                                 id="spark-f43f5e-uwwr"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f43f5e-xykg)"
+-                               fill="url(#spark-f43f5e-uwwr)"
+                              >
+                              ...
+                  ...
+            ...
+          ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <DashboardPage>
+                <div data-testid="dashboard-...">
+                  <div>
+                  <div style={{display:"grid", ...}} className="grid-cols-...">
+                    <StatCard title="Tokens Saved" value={77700} subtitle="last 30 days" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-token..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-6366f1-tchx"
+-                                 id="spark-6366f1-9ixm"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-6366f1-tchx)"
+-                               fill="url(#spark-6366f1-9ixm)"
+                              >
+                              ...
+                    <StatCard title="Cost Saved" value={2331} subtitle="$0.2331 US..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-cost-..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-10b981-u5c6"
+-                                 id="spark-10b981-9258"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-10b981-u5c6)"
+-                               fill="url(#spark-10b981-9258)"
+                              >
+                              ...
+                    <StatCard title="Success Rate" value={90} subtitle="of agent runs" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-succe..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f59e0b-z2lm"
+-                                 id="spark-f59e0b-cyum"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f59e0b-z2lm)"
+-                               fill="url(#spark-f59e0b-cyum)"
+                              >
+                              ...
+                    <StatCard title="Total Runs" value={30} subtitle="agent exec..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-total..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f43f5e-nzro"
+-                                 id="spark-f43f5e-qt6x"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f43f5e-nzro)"
+-                               fill="url(#spark-f43f5e-qt6x)"
+                              >
+                              ...
+                  ...
+            ...
+          ...
+ 
+[browser] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). 
+[browser] Uncaught Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <LoadingBoundary name="cost/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/cost" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="cost/page.tsx">
+                <SegmentTrieNode>
+                <CostPage>
+                  <main style={{padding:28}}>
+                    <h1>
+                    <p>
+                    <div style={{display:"grid", ...}}>
+                      <div style={{...}}>
+                        <h2>
+                        <p>
+                        <CostProjector>
+                          <div data-testid="cost-proje...">
+                            <div>
+                            <div>
+                            <div>
+                            <div data-testid="cost-proje..." style={{...}}>
+                              <div style={{display:"flex", ...}}>
+                                <span>
+                                <span style={{color:"#a78bfa",fontWeight:600,fontFamily:"JetBrains ..."}}>
++                                 1,500,000
+-                                 15,00,000
+                              ...
+                      ...
+                    ...
+              ...
+            ...
+
+    at <unknown> (https://react.dev/link/hydration-mismatch)
+    at span (<anonymous>)
+    at CostProjector (app/components/cost/CostProjector.tsx:132:11)
+    at CostPage (app\cost\page.tsx:13:11)
+  130 |         >
+  131 |           <span style={{ color: 'var(--muted)' }}>Tokens reduced (30%)</span>
+> 132 |           <span style={{ color: '#a78bfa', fontWeight: 600, fontFamily: 'JetBrains Mono, ...
+      |           ^
+  133 |             {Math.round(tokensReduced).toLocaleString()}
+  134 |           </span>
+  135 |         </div>
+[browser] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). 
+[browser] Uncaught Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <LoadingBoundary name="cost/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/cost" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="cost/page.tsx">
+                <SegmentTrieNode>
+                <CostPage>
+                  <main style={{padding:28}}>
+                    <h1>
+                    <p>
+                    <div style={{display:"grid", ...}}>
+                      <div style={{...}}>
+                        <h2>
+                        <p>
+                        <CostProjector>
+                          <div data-testid="cost-proje...">
+                            <div>
+                            <div>
+                            <div>
+                            <div data-testid="cost-proje..." style={{...}}>
+                              <div style={{display:"flex", ...}}>
+                                <span>
+                                <span style={{color:"#a78bfa",fontWeight:600,fontFamily:"JetBrains ..."}}>
++                                 1,500,000
+-                                 15,00,000
+                              ...
+                      ...
+                    ...
+              ...
+            ...
+
+    at <unknown> (https://react.dev/link/hydration-mismatch)
+    at span (<anonymous>)
+    at CostProjector (app/components/cost/CostProjector.tsx:132:11)
+    at CostPage (app\cost\page.tsx:13:11)
+  130 |         >
+  131 |           <span style={{ color: 'var(--muted)' }}>Tokens reduced (30%)</span>
+> 132 |           <span style={{ color: '#a78bfa', fontWeight: 600, fontFamily: 'JetBrains Mono, ...
+      |           ^
+  133 |             {Math.round(tokensReduced).toLocaleString()}
+  134 |           </span>
+  135 |         </div>
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <DashboardPage>
+                <div data-testid="dashboard-...">
+                  <div>
+                  <div style={{display:"grid", ...}} className="grid-cols-...">
+                    <StatCard title="Tokens Saved" value={77700} subtitle="last 30 days" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-token..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-6366f1-tvn6"
+-                                 id="spark-6366f1-p2k3"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-6366f1-tvn6)"
+-                               fill="url(#spark-6366f1-p2k3)"
+                              >
+                              ...
+                    <StatCard title="Cost Saved" value={2331} subtitle="$0.2331 US..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-cost-..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-10b981-ac4j"
+-                                 id="spark-10b981-zxrg"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-10b981-ac4j)"
+-                               fill="url(#spark-10b981-zxrg)"
+                              >
+                              ...
+                    <StatCard title="Success Rate" value={90} subtitle="of agent runs" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-succe..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f59e0b-9g55"
+-                                 id="spark-f59e0b-tyxo"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f59e0b-9g55)"
+-                               fill="url(#spark-f59e0b-tyxo)"
+                              >
+                              ...
+                    <StatCard title="Total Runs" value={30} subtitle="agent exec..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-total..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f43f5e-ueoi"
+-                                 id="spark-f43f5e-634l"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f43f5e-ueoi)"
+-                               fill="url(#spark-f43f5e-634l)"
+                              >
+                              ...
+                  ...
+            ...
+          ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <DashboardPage>
+                <div data-testid="dashboard-...">
+                  <div>
+                  <div style={{display:"grid", ...}} className="grid-cols-...">
+                    <StatCard title="Tokens Saved" value={77700} subtitle="last 30 days" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-token..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-6366f1-eopm"
+-                                 id="spark-6366f1-vtjw"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-6366f1-eopm)"
+-                               fill="url(#spark-6366f1-vtjw)"
+                              >
+                              ...
+                    <StatCard title="Cost Saved" value={2331} subtitle="$0.2331 US..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-cost-..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-10b981-1l7m"
+-                                 id="spark-10b981-wfm5"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-10b981-1l7m)"
+-                               fill="url(#spark-10b981-wfm5)"
+                              >
+                              ...
+                    <StatCard title="Success Rate" value={90} subtitle="of agent runs" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-succe..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f59e0b-84mg"
+-                                 id="spark-f59e0b-t7rq"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f59e0b-84mg)"
+-                               fill="url(#spark-f59e0b-t7rq)"
+                              >
+                              ...
+                    <StatCard title="Total Runs" value={30} subtitle="agent exec..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-total..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f43f5e-g95n"
+-                                 id="spark-f43f5e-p64m"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f43f5e-g95n)"
+-                               fill="url(#spark-f43f5e-p64m)"
+                              >
+                              ...
+                  ...
+            ...
+          ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <DashboardPage>
+                <div data-testid="dashboard-...">
+                  <div>
+                  <div style={{display:"grid", ...}} className="grid-cols-...">
+                    <StatCard title="Tokens Saved" value={77700} subtitle="last 30 days" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-token..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-6366f1-qnd6"
+-                                 id="spark-6366f1-o8l4"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-6366f1-qnd6)"
+-                               fill="url(#spark-6366f1-o8l4)"
+                              >
+                              ...
+                    <StatCard title="Cost Saved" value={2331} subtitle="$0.2331 US..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-cost-..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-10b981-t036"
+-                                 id="spark-10b981-b7hf"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-10b981-t036)"
+-                               fill="url(#spark-10b981-b7hf)"
+                              >
+                              ...
+                    <StatCard title="Success Rate" value={90} subtitle="of agent runs" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-succe..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f59e0b-qgnw"
+-                                 id="spark-f59e0b-ugx9"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f59e0b-qgnw)"
+-                               fill="url(#spark-f59e0b-ugx9)"
+                              >
+                              ...
+                    <StatCard title="Total Runs" value={30} subtitle="agent exec..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-total..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f43f5e-0r13"
+-                                 id="spark-f43f5e-3vtn"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f43f5e-0r13)"
+-                               fill="url(#spark-f43f5e-3vtn)"
+                              >
+                              ...
+                  ...
+            ...
+          ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <DashboardPage>
+                <div data-testid="dashboard-...">
+                  <div>
+                  <div style={{display:"grid", ...}} className="grid-cols-...">
+                    <StatCard title="Tokens Saved" value={77700} subtitle="last 30 days" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-token..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-6366f1-ewky"
+-                                 id="spark-6366f1-wq1e"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-6366f1-ewky)"
+-                               fill="url(#spark-6366f1-wq1e)"
+                              >
+                              ...
+                    <StatCard title="Cost Saved" value={2331} subtitle="$0.2331 US..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-cost-..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-10b981-ifq5"
+-                                 id="spark-10b981-nzo4"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-10b981-ifq5)"
+-                               fill="url(#spark-10b981-nzo4)"
+                              >
+                              ...
+                    <StatCard title="Success Rate" value={90} subtitle="of agent runs" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-succe..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f59e0b-m2md"
+-                                 id="spark-f59e0b-gg1x"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f59e0b-m2md)"
+-                               fill="url(#spark-f59e0b-gg1x)"
+                              >
+                              ...
+                    <StatCard title="Total Runs" value={30} subtitle="agent exec..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-total..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f43f5e-wz3k"
+-                                 id="spark-f43f5e-hdhn"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f43f5e-wz3k)"
+-                               fill="url(#spark-f43f5e-hdhn)"
+                              >
+                              ...
+                  ...
+            ...
+          ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <DashboardPage>
+                <div data-testid="dashboard-...">
+                  <div>
+                  <div style={{display:"grid", ...}} className="grid-cols-...">
+                    <StatCard title="Tokens Saved" value={77700} subtitle="last 30 days" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-token..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-6366f1-9f6d"
+-                                 id="spark-6366f1-3mhy"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-6366f1-9f6d)"
+-                               fill="url(#spark-6366f1-3mhy)"
+                              >
+                              ...
+                    <StatCard title="Cost Saved" value={2331} subtitle="$0.2331 US..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-cost-..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-10b981-68zb"
+-                                 id="spark-10b981-yd5f"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-10b981-68zb)"
+-                               fill="url(#spark-10b981-yd5f)"
+                              >
+                              ...
+                    <StatCard title="Success Rate" value={90} subtitle="of agent runs" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-succe..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f59e0b-m73i"
+-                                 id="spark-f59e0b-8pvn"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f59e0b-m73i)"
+-                               fill="url(#spark-f59e0b-8pvn)"
+                              >
+                              ...
+                    <StatCard title="Total Runs" value={30} subtitle="agent exec..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-total..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f43f5e-esl0"
+-                                 id="spark-f43f5e-tdhu"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f43f5e-esl0)"
+-                               fill="url(#spark-f43f5e-tdhu)"
+                              >
+                              ...
+                  ...
+            ...
+          ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <DashboardPage>
+                <div data-testid="dashboard-...">
+                  <div>
+                  <div style={{display:"grid", ...}} className="grid-cols-...">
+                    <StatCard title="Tokens Saved" value={77700} subtitle="last 30 days" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-token..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-6366f1-1i6r"
+-                                 id="spark-6366f1-qek4"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-6366f1-1i6r)"
+-                               fill="url(#spark-6366f1-qek4)"
+                              >
+                              ...
+                    <StatCard title="Cost Saved" value={2331} subtitle="$0.2331 US..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-cost-..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-10b981-vlgm"
+-                                 id="spark-10b981-ifp9"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-10b981-vlgm)"
+-                               fill="url(#spark-10b981-ifp9)"
+                              >
+                              ...
+                    <StatCard title="Success Rate" value={90} subtitle="of agent runs" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-succe..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f59e0b-01o2"
+-                                 id="spark-f59e0b-vm2b"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f59e0b-01o2)"
+-                               fill="url(#spark-f59e0b-vm2b)"
+                              >
+                              ...
+                    <StatCard title="Total Runs" value={30} subtitle="agent exec..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-total..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f43f5e-lbrg"
+-                                 id="spark-f43f5e-wlgg"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f43f5e-lbrg)"
+-                               fill="url(#spark-f43f5e-wlgg)"
+                              >
+                              ...
+                  ...
+            ...
+          ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <DashboardPage>
+                <div data-testid="dashboard-...">
+                  <div>
+                  <div style={{display:"grid", ...}} className="grid-cols-...">
+                    <StatCard title="Tokens Saved" value={77700} subtitle="last 30 days" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-token..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-6366f1-nudy"
+-                                 id="spark-6366f1-yl1r"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-6366f1-nudy)"
+-                               fill="url(#spark-6366f1-yl1r)"
+                              >
+                              ...
+                    <StatCard title="Cost Saved" value={2331} subtitle="$0.2331 US..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-cost-..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-10b981-oowz"
+-                                 id="spark-10b981-c7i6"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-10b981-oowz)"
+-                               fill="url(#spark-10b981-c7i6)"
+                              >
+                              ...
+                    <StatCard title="Success Rate" value={90} subtitle="of agent runs" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-succe..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f59e0b-6p2t"
+-                                 id="spark-f59e0b-fdgq"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f59e0b-6p2t)"
+-                               fill="url(#spark-f59e0b-fdgq)"
+                              >
+                              ...
+                    <StatCard title="Total Runs" value={30} subtitle="agent exec..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-total..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f43f5e-qqeb"
+-                                 id="spark-f43f5e-x7n8"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f43f5e-qqeb)"
+-                               fill="url(#spark-f43f5e-x7n8)"
+                              >
+                              ...
+                  ...
+            ...
+          ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <DashboardPage>
+                <div data-testid="dashboard-...">
+                  <div>
+                  <div style={{display:"grid", ...}} className="grid-cols-...">
+                    <StatCard title="Tokens Saved" value={77700} subtitle="last 30 days" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-token..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-6366f1-lu2o"
+-                                 id="spark-6366f1-m6x6"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-6366f1-lu2o)"
+-                               fill="url(#spark-6366f1-m6x6)"
+                              >
+                              ...
+                    <StatCard title="Cost Saved" value={2331} subtitle="$0.2331 US..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-cost-..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-10b981-reyx"
+-                                 id="spark-10b981-fso8"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-10b981-reyx)"
+-                               fill="url(#spark-10b981-fso8)"
+                              >
+                              ...
+                    <StatCard title="Success Rate" value={90} subtitle="of agent runs" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-succe..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f59e0b-3mn5"
+-                                 id="spark-f59e0b-t4wr"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f59e0b-3mn5)"
+-                               fill="url(#spark-f59e0b-t4wr)"
+                              >
+                              ...
+                    <StatCard title="Total Runs" value={30} subtitle="agent exec..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-total..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f43f5e-il7j"
+-                                 id="spark-f43f5e-oi4f"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f43f5e-il7j)"
+-                               fill="url(#spark-f43f5e-oi4f)"
+                              >
+                              ...
+                  ...
+            ...
+          ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <DashboardPage>
+                <div data-testid="dashboard-...">
+                  <div>
+                  <div style={{display:"grid", ...}} className="grid-cols-...">
+                    <StatCard title="Tokens Saved" value={77700} subtitle="last 30 days" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-token..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-6366f1-aixz"
+-                                 id="spark-6366f1-22xj"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-6366f1-aixz)"
+-                               fill="url(#spark-6366f1-22xj)"
+                              >
+                              ...
+                    <StatCard title="Cost Saved" value={2331} subtitle="$0.2331 US..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-cost-..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-10b981-s0lg"
+-                                 id="spark-10b981-vlef"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-10b981-s0lg)"
+-                               fill="url(#spark-10b981-vlef)"
+                              >
+                              ...
+                    <StatCard title="Success Rate" value={90} subtitle="of agent runs" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-succe..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f59e0b-zxcl"
+-                                 id="spark-f59e0b-nzn2"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f59e0b-zxcl)"
+-                               fill="url(#spark-f59e0b-nzn2)"
+                              >
+                              ...
+                    <StatCard title="Total Runs" value={30} subtitle="agent exec..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-total..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f43f5e-svmk"
+-                                 id="spark-f43f5e-h40g"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f43f5e-svmk)"
+-                               fill="url(#spark-f43f5e-h40g)"
+                              >
+                              ...
+                  ...
+            ...
+          ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <DashboardPage>
+                <div data-testid="dashboard-...">
+                  <div>
+                  <div style={{display:"grid", ...}} className="grid-cols-...">
+                    <StatCard title="Tokens Saved" value={77700} subtitle="last 30 days" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-token..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-6366f1-ifqj"
+-                                 id="spark-6366f1-7afv"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-6366f1-ifqj)"
+-                               fill="url(#spark-6366f1-7afv)"
+                              >
+                              ...
+                    <StatCard title="Cost Saved" value={2331} subtitle="$0.2331 US..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-cost-..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-10b981-6llu"
+-                                 id="spark-10b981-3e5j"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-10b981-6llu)"
+-                               fill="url(#spark-10b981-3e5j)"
+                              >
+                              ...
+                    <StatCard title="Success Rate" value={90} subtitle="of agent runs" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-succe..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f59e0b-4mky"
+-                                 id="spark-f59e0b-41j4"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f59e0b-4mky)"
+-                               fill="url(#spark-f59e0b-41j4)"
+                              >
+                              ...
+                    <StatCard title="Total Runs" value={30} subtitle="agent exec..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-total..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f43f5e-xluu"
+-                                 id="spark-f43f5e-r4a0"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f43f5e-xluu)"
+-                               fill="url(#spark-f43f5e-r4a0)"
+                              >
+                              ...
+                  ...
+            ...
+          ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <DashboardPage>
+                <div data-testid="dashboard-...">
+                  <div>
+                  <div style={{display:"grid", ...}} className="grid-cols-...">
+                    <StatCard title="Tokens Saved" value={77700} subtitle="last 30 days" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-token..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-6366f1-fgbj"
+-                                 id="spark-6366f1-hm8m"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-6366f1-fgbj)"
+-                               fill="url(#spark-6366f1-hm8m)"
+                              >
+                              ...
+                    <StatCard title="Cost Saved" value={2331} subtitle="$0.2331 US..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-cost-..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-10b981-0s1u"
+-                                 id="spark-10b981-9iul"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-10b981-0s1u)"
+-                               fill="url(#spark-10b981-9iul)"
+                              >
+                              ...
+                    <StatCard title="Success Rate" value={90} subtitle="of agent runs" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-succe..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f59e0b-erko"
+-                                 id="spark-f59e0b-n810"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f59e0b-erko)"
+-                               fill="url(#spark-f59e0b-n810)"
+                              >
+                              ...
+                    <StatCard title="Total Runs" value={30} subtitle="agent exec..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-total..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f43f5e-07y8"
+-                                 id="spark-f43f5e-rfm1"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f43f5e-07y8)"
+-                               fill="url(#spark-f43f5e-rfm1)"
+                              >
+                              ...
+                  ...
+            ...
+          ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <DashboardPage>
+                <div data-testid="dashboard-...">
+                  <div>
+                  <div style={{display:"grid", ...}} className="grid-cols-...">
+                    <StatCard title="Tokens Saved" value={77700} subtitle="last 30 days" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-token..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-6366f1-sehw"
+-                                 id="spark-6366f1-kl7c"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-6366f1-sehw)"
+-                               fill="url(#spark-6366f1-kl7c)"
+                              >
+                              ...
+                    <StatCard title="Cost Saved" value={2331} subtitle="$0.2331 US..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-cost-..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-10b981-9nhp"
+-                                 id="spark-10b981-zuks"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-10b981-9nhp)"
+-                               fill="url(#spark-10b981-zuks)"
+                              >
+                              ...
+                    <StatCard title="Success Rate" value={90} subtitle="of agent runs" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-succe..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f59e0b-s642"
+-                                 id="spark-f59e0b-cmhu"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f59e0b-s642)"
+-                               fill="url(#spark-f59e0b-cmhu)"
+                              >
+                              ...
+                    <StatCard title="Total Runs" value={30} subtitle="agent exec..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-total..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f43f5e-6a80"
+-                                 id="spark-f43f5e-ydnw"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f43f5e-6a80)"
+-                               fill="url(#spark-f43f5e-ydnw)"
+                              >
+                              ...
+                  ...
+            ...
+          ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <DashboardPage>
+                <div data-testid="dashboard-...">
+                  <div>
+                  <div style={{display:"grid", ...}} className="grid-cols-...">
+                    <StatCard title="Tokens Saved" value={77700} subtitle="last 30 days" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-token..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-6366f1-za2o"
+-                                 id="spark-6366f1-w3jx"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-6366f1-za2o)"
+-                               fill="url(#spark-6366f1-w3jx)"
+                              >
+                              ...
+                    <StatCard title="Cost Saved" value={2331} subtitle="$0.2331 US..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-cost-..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-10b981-y3ec"
+-                                 id="spark-10b981-fz29"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-10b981-y3ec)"
+-                               fill="url(#spark-10b981-fz29)"
+                              >
+                              ...
+                    <StatCard title="Success Rate" value={90} subtitle="of agent runs" accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-succe..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f59e0b-hk2o"
+-                                 id="spark-f59e0b-e7ju"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f59e0b-hk2o)"
+-                               fill="url(#spark-f59e0b-e7ju)"
+                              >
+                              ...
+                    <StatCard title="Total Runs" value={30} subtitle="agent exec..." accent="linear-gra..." ...>
+                      <motion.div className="stat-card" variants={{initial:{...}, ...}} initial="initial" ...>
+                        <div className="stat-card" data-testid="stat-total..." onMouseEnter={function onMouseEnter} ...>
+                          <div>
+                          <p>
+                          <p>
+                          <p>
+                          <Sparkline data={[...]} accent="linear-gra...">
+                            <svg viewBox="0 0 100 32" width="100%" height="32" preserveAspectRatio="none" style={{...}}>
+                              <defs>
+                                <linearGradient
++                                 id="spark-f43f5e-xfcw"
+-                                 id="spark-f43f5e-pffv"
+                                  x1="0"
+                                  y1="0"
+                                  x2="0"
+                                  y2="1"
+                                >
+                              <polygon
+                                points="0,32 0,27.844155844155843 11.11111111111111,23.68831168831169 22.2222222222222..."
++                               fill="url(#spark-f43f5e-xfcw)"
+-                               fill="url(#spark-f43f5e-pffv)"
+                              >
+                              ...
+                  ...
+            ...
+          ...
+ 
