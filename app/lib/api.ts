@@ -1,46 +1,109 @@
-const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
+const API_BASE = process.env.AGENTSAVE_API_URL ?? "http://localhost:8000"
 
 export interface MetricsData {
-  project_id: string;
-  period: string;
-  tokens_saved: number;
-  cost_saved_usd: number;
-  success_rate: number;
-  event_count: number;
+  total_tokens_saved: number
+  total_tokens_before: number
+  reduction_pct: number
+  total_cost_saved_usd: number
+  success_rate: number   // 0–100
+  total_runs: number
+  by_framework: Record<string, { runs: number; tokens_saved: number }>
 }
 
-export interface ApiToken {
-  id: string;
-  name: string;
-  project_id: string | null;
-  created_at: string;
-  last_used_at: string | null;
+export interface RunRow {
+  run_id: string
+  framework: string
+  model_name: string
+  tokens_before: number
+  tokens_after: number
+  reduction_pct: number
+  task_success: boolean
+  timestamp: string
 }
 
-export async function fetchMetrics(projectId: string, period = "30d", token: string): Promise<MetricsData> {
-  const res = await fetch(`${API_BASE}/api/metrics?project_id=${projectId}&period=${period}`, {
-    headers: { Authorization: `Bearer ${token}` },
-    cache: "no-store",
-  });
-  if (!res.ok) throw new Error(`Metrics fetch failed: ${res.status}`);
-  return res.json();
+export interface RunsResponse {
+  runs: RunRow[]
+  total: number
+  page: number
+  per_page: number
 }
 
-export async function fetchTokens(userId: string, authToken: string): Promise<ApiToken[]> {
-  const res = await fetch(`${API_BASE}/api/tokens?user_id=${userId}`, {
-    headers: { Authorization: `Bearer ${authToken}` },
-    cache: "no-store",
-  });
-  if (!res.ok) throw new Error(`Tokens fetch failed: ${res.status}`);
-  return res.json();
+export interface BillingData {
+  tier: string
+  org: string
+  seats_allowed: number
+  seats_used: number
+  expires_at: string | null
+  expired: boolean
+  features: Record<string, unknown>
 }
 
-export async function createToken(name: string, projectId: string, authToken: string): Promise<{ token: string; id: string }> {
-  const res = await fetch(`${API_BASE}/api/tokens`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${authToken}` },
-    body: JSON.stringify({ name, project_id: projectId }),
-  });
-  if (!res.ok) throw new Error(`Token creation failed: ${res.status}`);
-  return res.json();
+function getApiKey(): string {
+  return process.env.AGENTSAVE_API_KEY ?? ""
+}
+
+function authHeader() {
+  return { Authorization: `Bearer ${getApiKey()}` }
+}
+
+export async function fetchMetrics(): Promise<MetricsData | null> {
+  const key = getApiKey()
+  if (!key) return null
+  try {
+    const res = await fetch(`${API_BASE}/api/metrics`, {
+      headers: authHeader(),
+      cache: "no-store",
+    })
+    if (!res.ok) return null
+    return res.json()
+  } catch {
+    return null
+  }
+}
+
+export async function fetchRuns(page = 1, perPage = 50): Promise<RunsResponse | null> {
+  const key = getApiKey()
+  if (!key) return null
+  try {
+    const res = await fetch(
+      `${API_BASE}/api/runs?page=${page}&per_page=${perPage}`,
+      { headers: authHeader(), cache: "no-store" }
+    )
+    if (!res.ok) return null
+    return res.json()
+  } catch {
+    return null
+  }
+}
+
+export async function fetchBilling(): Promise<BillingData | null> {
+  const key = getApiKey()
+  if (!key) return null
+  try {
+    const res = await fetch(`${API_BASE}/api/billing`, {
+      headers: authHeader(),
+      cache: "no-store",
+    })
+    if (!res.ok) return null
+    return res.json()
+  } catch {
+    return null
+  }
+}
+
+export async function fetchTokenBuckets(
+  window = "30d"
+): Promise<{ buckets: { date: string; tokens_before: number; tokens_after: number }[] } | null> {
+  const key = getApiKey()
+  if (!key) return null
+  try {
+    const res = await fetch(`${API_BASE}/api/tokens?window=${window}`, {
+      headers: authHeader(),
+      cache: "no-store",
+    })
+    if (!res.ok) return null
+    return res.json()
+  } catch {
+    return null
+  }
 }

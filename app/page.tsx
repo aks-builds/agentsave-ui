@@ -4,86 +4,31 @@ import TokensAreaChart, { DataPoint } from './components/charts/TokensAreaChart'
 import FrameworkDonut, { FRAMEWORK_COLORS } from './components/charts/FrameworkDonut'
 import RunsTable, { RunRow } from './components/runs/RunsTable'
 import ActivityFeed from './components/dashboard/ActivityFeed'
-
-interface Metrics {
-  tokens_saved: number
-  cost_saved_usd: number
-  success_rate: number
-  event_count: number
-}
-
-interface EventRow {
-  id: string
-  run_id: string
-  framework: string
-  model_name: string
-  tokens_before: number
-  tokens_after: number
-  iterations_total: number
-  iterations_saved: number
-  task_success: number
-  timestamp: string
-}
+import { fetchMetrics, fetchRuns, RunRow as ApiRunRow } from './lib/api'
 
 type DonutSlice = { name: string; value: number; color: string }
 
-async function fetchMetrics(): Promise<Metrics | null> {
-  const apiUrl = process.env.DASHBOARD_API_URL ?? 'http://localhost:8000'
-  const projectId = process.env.DEMO_PROJECT_ID ?? ''
-  const jwt = process.env.DEMO_JWT ?? ''
-  if (!projectId || !jwt) return null
-  try {
-    const res = await fetch(
-      `${apiUrl}/api/metrics?project_id=${projectId}&period=30d`,
-      { headers: { Authorization: `Bearer ${jwt}` }, cache: 'no-store' }
-    )
-    if (!res.ok) return null
-    return res.json()
-  } catch {
-    return null
-  }
-}
-
-async function fetchRecentEvents(): Promise<EventRow[]> {
-  const apiUrl = process.env.DASHBOARD_API_URL ?? 'http://localhost:8000'
-  const projectId = process.env.DEMO_PROJECT_ID ?? ''
-  const jwt = process.env.DEMO_JWT ?? ''
-  if (!projectId || !jwt) return []
-  try {
-    const res = await fetch(
-      `${apiUrl}/api/events/recent?project_id=${projectId}&limit=10`,
-      { headers: { Authorization: `Bearer ${jwt}` }, cache: 'no-store' }
-    )
-    if (!res.ok) return []
-    const data = await res.json()
-    return Array.isArray(data) ? data : []
-  } catch {
-    return []
-  }
-}
-
-function buildChartData(events: EventRow[]): DataPoint[] {
-  // Group by date, sum saved tokens per day
+function buildChartData(runs: ApiRunRow[]): DataPoint[] {
   const byDate: Record<string, { saved: number; baseline: number }> = {}
-  for (const e of events) {
-    const date = e.timestamp.slice(0, 10) // YYYY-MM-DD
+  for (const r of runs) {
+    const date = r.timestamp.slice(0, 10)
     if (!byDate[date]) byDate[date] = { saved: 0, baseline: 0 }
-    byDate[date].saved += e.tokens_before - e.tokens_after
-    byDate[date].baseline += e.tokens_before
+    byDate[date].saved += r.tokens_before - r.tokens_after
+    byDate[date].baseline += r.tokens_before
   }
   return Object.entries(byDate)
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([date, vals]) => ({
-      date: date.slice(5), // MM-DD
+      date: date.slice(5),
       saved: vals.saved,
       baseline: vals.baseline,
     }))
 }
 
-function buildDonutData(events: EventRow[]): DonutSlice[] {
+function buildDonutData(runs: ApiRunRow[]): DonutSlice[] {
   const byFw: Record<string, number> = {}
-  for (const e of events) {
-    byFw[e.framework] = (byFw[e.framework] ?? 0) + (e.tokens_before - e.tokens_after)
+  for (const r of runs) {
+    byFw[r.framework] = (byFw[r.framework] ?? 0) + (r.tokens_before - r.tokens_after)
   }
   return Object.entries(byFw)
     .map(([framework, value]) => ({
@@ -104,26 +49,27 @@ function getGreeting(): string {
 const SPARK_DUMMY = [10, 20, 30, 25, 40, 50, 60, 55, 70, 77]
 
 export default async function DashboardPage() {
-  const [metrics, events] = await Promise.all([fetchMetrics(), fetchRecentEvents()])
+  const [metrics, runsData] = await Promise.all([fetchMetrics(), fetchRuns(1, 10)])
+  const runs = runsData?.runs ?? []
 
-  const chartData = buildChartData(events)
-  const donutData = buildDonutData(events)
+  const chartData = buildChartData(runs)
+  const donutData = buildDonutData(runs)
   const totalDonutSaved = donutData.reduce((s, d) => s + d.value, 0)
-  const runRows: RunRow[] = events.slice(0, 3).map((e) => ({
-    id: e.id,
-    run_id: e.run_id,
-    framework: e.framework,
-    model_name: e.model_name,
-    tokens_before: e.tokens_before,
-    tokens_after: e.tokens_after,
-    task_success: !!e.task_success,
-    timestamp: e.timestamp,
+  const runRows: RunRow[] = runs.slice(0, 3).map((r) => ({
+    id: r.run_id,
+    run_id: r.run_id,
+    framework: r.framework,
+    model_name: r.model_name,
+    tokens_before: r.tokens_before,
+    tokens_after: r.tokens_after,
+    task_success: r.task_success,
+    timestamp: r.timestamp,
   }))
 
-  const tokensSaved = metrics?.tokens_saved ?? 0
-  const costSaved = metrics?.cost_saved_usd ?? 0
-  const successRate = metrics ? Math.round(metrics.success_rate * 100) : 0
-  const totalRuns = metrics?.event_count ?? 0
+  const tokensSaved = metrics?.total_tokens_saved ?? 0
+  const costSaved = metrics?.total_cost_saved_usd ?? 0
+  const successRate = metrics ? Math.round(metrics.success_rate) : 0
+  const totalRuns = metrics?.total_runs ?? 0
 
   return (
     <div data-testid="dashboard-page">

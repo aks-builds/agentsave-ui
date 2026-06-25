@@ -1,45 +1,17 @@
 import RunsTable, { RunRow } from '../components/runs/RunsTable'
-
-interface EventRow {
-  id: string
-  run_id: string
-  framework: string
-  model_name: string
-  tokens_before: number
-  tokens_after: number
-  task_success: number | boolean
-  timestamp: string
-}
-
-async function getRecentEvents(): Promise<EventRow[]> {
-  const apiUrl = process.env.DASHBOARD_API_URL ?? 'http://localhost:8000'
-  const projectId = process.env.DEMO_PROJECT_ID ?? ''
-  const jwt = process.env.DEMO_JWT ?? ''
-  if (!projectId || !jwt) return []
-  try {
-    const res = await fetch(`${apiUrl}/api/events/recent?project_id=${projectId}&limit=30`, {
-      headers: { Authorization: `Bearer ${jwt}` },
-      cache: 'no-store',
-    })
-    if (!res.ok) return []
-    const data = await res.json()
-    return Array.isArray(data) ? data : []
-  } catch {
-    return []
-  }
-}
+import { fetchRuns } from '../lib/api'
 
 export default async function RunsPage() {
-  const events = await getRecentEvents()
-  const runs: RunRow[] = events.map((e) => ({
-    id: e.id,
-    run_id: e.run_id,
-    framework: e.framework,
-    model_name: e.model_name,
-    tokens_before: e.tokens_before,
-    tokens_after: e.tokens_after,
-    task_success: !!e.task_success,
-    timestamp: e.timestamp,
+  const data = await fetchRuns(1, 50)
+  const runs: RunRow[] = (data?.runs ?? []).map((r) => ({
+    id: r.run_id,
+    run_id: r.run_id,
+    framework: r.framework,
+    model_name: r.model_name,
+    tokens_before: r.tokens_before,
+    tokens_after: r.tokens_after,
+    task_success: r.task_success,
+    timestamp: r.timestamp,
   }))
 
   return (
