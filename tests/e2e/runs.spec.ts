@@ -14,7 +14,7 @@ test.describe('Runs page — UI structure', () => {
   })
 
   test('page heading shows Agent Runs', async ({ page }) => {
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('Agent Runs')
+    await expect(page.getByRole('main').getByRole('heading', { level: 1 })).toContainText('Agent Runs')
   })
 })
 
