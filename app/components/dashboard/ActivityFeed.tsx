@@ -4,20 +4,19 @@ import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { toast } from 'sonner'
 
-type RecentEvent = {
-  id: string
+type RunRow = {
   run_id: string
   framework: string
   model_name: string
   tokens_before: number
   tokens_after: number
-  task_success: number
+  task_success: boolean
   timestamp: string
 }
 
-const API_URL = process.env.NEXT_PUBLIC_DASHBOARD_API_URL ?? 'http://localhost:8000'
-const PROJECT_ID = process.env.NEXT_PUBLIC_DEMO_PROJECT_ID ?? ''
-const JWT = process.env.NEXT_PUBLIC_DEMO_JWT ?? ''
+// Client-side fetch — needs NEXT_PUBLIC_ prefix so Next.js exposes these to the browser
+const API_URL = process.env.NEXT_PUBLIC_AGENTSAVE_API_URL ?? 'http://localhost:8000'
+const API_KEY = process.env.NEXT_PUBLIC_AGENTSAVE_API_KEY ?? ''
 
 function timeAgo(ts: string): string {
   const diff = Date.now() - new Date(ts).getTime()
@@ -28,37 +27,37 @@ function timeAgo(ts: string): string {
 }
 
 export default function ActivityFeed() {
-  const [events, setEvents] = useState<RecentEvent[]>([])
+  const [runs, setRuns] = useState<RunRow[]>([])
   const [prevIds, setPrevIds] = useState<Set<string>>(new Set())
 
   useEffect(() => {
-    const fetchEvents = async () => {
-      if (!PROJECT_ID || !JWT) return
+    const fetchRuns = async () => {
+      if (!API_KEY) return
       try {
-        const res = await fetch(
-          `${API_URL}/api/events/recent?project_id=${PROJECT_ID}&limit=10`,
-          { headers: { Authorization: `Bearer ${JWT}` } }
-        )
+        const res = await fetch(`${API_URL}/api/runs?per_page=10`, {
+          headers: { Authorization: `Bearer ${API_KEY}` },
+        })
         if (!res.ok) return
-        const data: RecentEvent[] = await res.json()
-        setEvents(data)
-        // Toast new events
-        const newEvents = data.filter((e) => !prevIds.has(e.id))
-        newEvents.forEach((e) => {
-          const saved = e.tokens_before - e.tokens_after
+        const data = await res.json()
+        const newRuns: RunRow[] = data.runs ?? []
+        setRuns(newRuns)
+        // Toast runs that appeared since last poll
+        const fresh = newRuns.filter((r) => !prevIds.has(r.run_id))
+        fresh.forEach((r) => {
+          const saved = r.tokens_before - r.tokens_after
           const cost = (saved * 0.000003).toFixed(4)
-          if (e.task_success) {
-            toast.success(`${e.framework} run saved ${saved.toLocaleString()} tokens ($${cost})`)
+          if (r.task_success) {
+            toast.success(`${r.framework} saved ${saved.toLocaleString()} tokens ($${cost})`)
           } else {
-            toast.error(`${e.framework} run failed — budget exceeded`)
+            toast.error(`${r.framework} run failed — budget exceeded`)
           }
         })
-        setPrevIds(new Set(data.map((e) => e.id)))
+        setPrevIds(new Set(newRuns.map((r) => r.run_id)))
       } catch {}
     }
 
-    fetchEvents()
-    const interval = setInterval(fetchEvents, 5000)
+    fetchRuns()
+    const interval = setInterval(fetchRuns, 5000)
     return () => clearInterval(interval)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -87,31 +86,24 @@ export default function ActivityFeed() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
           <span
             className="pulse-dot"
-            style={{
-              width: 6,
-              height: 6,
-              borderRadius: '50%',
-              background: '#10b981',
-              display: 'inline-block',
-            }}
+            style={{ width: 6, height: 6, borderRadius: '50%', background: '#10b981', display: 'inline-block' }}
           />
           <span style={{ fontSize: 10, color: '#10b981', fontWeight: 700 }}>LIVE</span>
         </div>
       </div>
-      {/* Events */}
+      {/* Runs */}
       <AnimatePresence>
-        {events.length === 0 ? (
+        {runs.length === 0 ? (
           <p style={{ padding: '24px', textAlign: 'center', color: 'var(--muted)', fontSize: 13 }}>
-            Waiting for runs…
+            {API_KEY ? 'Waiting for runs…' : 'Set NEXT_PUBLIC_AGENTSAVE_API_KEY to enable live feed'}
           </p>
         ) : (
-          events.map((ev) => {
-            const saved = ev.tokens_before - ev.tokens_after
+          runs.map((r) => {
+            const saved = r.tokens_before - r.tokens_after
             const cost = (saved * 0.000003).toFixed(4)
-            const success = Boolean(ev.task_success)
             return (
               <motion.div
-                key={ev.id}
+                key={r.run_id}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
@@ -129,7 +121,7 @@ export default function ActivityFeed() {
                     width: 28,
                     height: 28,
                     borderRadius: '50%',
-                    background: success ? 'rgba(16,185,129,0.15)' : 'rgba(244,63,94,0.12)',
+                    background: r.task_success ? 'rgba(16,185,129,0.15)' : 'rgba(244,63,94,0.12)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -137,27 +129,19 @@ export default function ActivityFeed() {
                     flexShrink: 0,
                   }}
                 >
-                  {success ? '⚡' : '⚠️'}
+                  {r.task_success ? '⚡' : '⚠️'}
                 </div>
                 <div>
                   <p style={{ fontSize: 13, fontWeight: 600, margin: 0, color: 'var(--text)' }}>
-                    {success
-                      ? `${ev.framework} run saved ${saved.toLocaleString()} tokens`
-                      : `${ev.framework} run failed`}
+                    {r.task_success
+                      ? `${r.framework} saved ${saved.toLocaleString()} tokens`
+                      : `${r.framework} run failed`}
                   </p>
-                  <div
-                    style={{
-                      display: 'flex',
-                      gap: 8,
-                      marginTop: 2,
-                      fontSize: 11,
-                      color: 'var(--muted)',
-                    }}
-                  >
-                    <span>{ev.model_name}</span>
-                    <span>{timeAgo(ev.timestamp)}</span>
-                    {success && <span style={{ color: '#34d399' }}>−${cost}</span>}
-                    {!success && <span style={{ color: '#f43f5e' }}>task failed</span>}
+                  <div style={{ display: 'flex', gap: 8, marginTop: 2, fontSize: 11, color: 'var(--muted)' }}>
+                    <span>{r.model_name}</span>
+                    <span>{timeAgo(r.timestamp)}</span>
+                    {r.task_success && <span style={{ color: '#34d399' }}>−${cost}</span>}
+                    {!r.task_success && <span style={{ color: '#f43f5e' }}>task failed</span>}
                   </div>
                 </div>
               </motion.div>

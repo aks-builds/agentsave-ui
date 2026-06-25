@@ -1,34 +1,71 @@
-const FRAMEWORKS = ["langchain", "langgraph", "autogen", "crewai", "smolagents", "raw"];
+import { fetchMetrics } from '../lib/api'
 
-export default function AgentsPage() {
+const FRAMEWORK_ICONS: Record<string, string> = {
+  langchain: '⚡',
+  langgraph: '🔗',
+  autogen: '🤖',
+  crewai: '🚢',
+  smolagents: '🧠',
+  raw: '⚙',
+}
+
+const FRAMEWORK_COLORS: Record<string, string> = {
+  langchain: '#6366f1',
+  langgraph: '#f43f5e',
+  autogen: '#f59e0b',
+  crewai: '#10b981',
+  smolagents: '#8b5cf6',
+  raw: '#6b7280',
+}
+
+export default async function AgentsPage() {
+  const metrics = await fetchMetrics()
+  const byFramework = metrics?.by_framework ?? {}
+
   return (
-    <main className="min-h-screen bg-gray-950 text-white p-8">
-      <h1 className="text-3xl font-bold mb-2">Agent Frameworks</h1>
-      <p className="text-gray-400 mb-8">Token savings broken down by framework.</p>
+    <main style={{ padding: 28 }}>
+      <h1 style={{ fontSize: 24, fontWeight: 900, marginBottom: 4, color: 'var(--text)', letterSpacing: '-0.03em' }}>Agent Frameworks</h1>
+      <p style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 24 }}>Token savings broken down by framework.</p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {FRAMEWORKS.map((fw) => (
-          <div key={fw} className="bg-gray-900 rounded-xl p-5 flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-blue-900 flex items-center justify-center text-blue-300 font-bold text-sm">
-              {fw[0].toUpperCase()}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 24 }}>
+        {Object.keys(FRAMEWORK_ICONS).map((fw) => {
+          const stats = byFramework[fw]
+          const color = FRAMEWORK_COLORS[fw] ?? '#6b7280'
+          return (
+            <div
+              key={fw}
+              style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 16, padding: 20 }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
+                <div style={{ width: 36, height: 36, borderRadius: 10, background: `${color}20`, border: `1px solid ${color}40`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>
+                  {FRAMEWORK_ICONS[fw]}
+                </div>
+                <div>
+                  <p style={{ fontSize: 14, fontWeight: 700, margin: 0, color: 'var(--text)', textTransform: 'capitalize' }}>{fw}</p>
+                  <p style={{ fontSize: 11, color: 'var(--muted)', margin: 0 }}>
+                    {stats ? `${stats.runs} run${stats.runs !== 1 ? 's' : ''}` : 'No runs yet'}
+                  </p>
+                </div>
+              </div>
+              <div style={{ borderTop: '1px solid var(--border)', paddingTop: 12 }}>
+                <p style={{ fontSize: 11, color: 'var(--muted)', margin: '0 0 4px', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>Tokens Saved</p>
+                <p style={{ fontSize: 22, fontWeight: 800, color: stats ? color : 'var(--muted)', margin: 0 }}>
+                  {stats ? stats.tokens_saved.toLocaleString() : '—'}
+                </p>
+              </div>
             </div>
-            <div>
-              <p className="font-semibold capitalize">{fw}</p>
-              <p className="text-gray-400 text-sm">No runs yet</p>
-            </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
 
-      <div className="mt-8 bg-gray-900 rounded-xl p-6">
-        <h2 className="text-xl font-semibold mb-2">How savings work</h2>
-        <p className="text-gray-400 text-sm leading-relaxed">
-          AgentSave wraps your agent loop with a three-layer supervisor: a TF-IDF context filter drops
-          low-relevance tool outputs, an early-exit detector stops iterations when returns diminish,
-          and a budget gate enforces a graceful token ceiling. Together they reduce token spend by
-          ~30% without degrading task success rate.
+      <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 16, padding: 24 }}>
+        <h2 style={{ fontSize: 15, fontWeight: 700, color: 'var(--text)', margin: '0 0 8px' }}>How it works</h2>
+        <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.7, margin: 0 }}>
+          AgentSave wraps your agent with a three-layer supervisor: a TF-IDF context filter drops low-relevance tool outputs,
+          an early-exit detector stops when returns diminish, and a budget gate enforces a token ceiling.
+          Savings are measured and reported per framework across all your runs.
         </p>
       </div>
     </main>
-  );
+  )
 }
